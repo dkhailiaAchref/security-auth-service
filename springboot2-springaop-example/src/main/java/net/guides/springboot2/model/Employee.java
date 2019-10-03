@@ -1,4 +1,4 @@
-package net.guides.springboot2.springboot2jpacrudexample.model;
+package net.guides.springboot2.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,11 @@ import javax.persistence.Table;
 public class Employee {
 
 	private long id;
+
+	public Employee(String firstName) {
+		this.firstName = firstName;
+	}
+
 	private String firstName;
 	private String lastName;
 	private String emailId;
@@ -43,7 +48,7 @@ public class Employee {
 		this.firstName = firstName;
 	}
 	
-	@Column(name = "last_name", nullable = false)
+	@Column(name = "last_name", nullable = true)
 	public String getLastName() {
 		return lastName;
 	}
@@ -51,7 +56,7 @@ public class Employee {
 		this.lastName = lastName;
 	}
 	
-	@Column(name = "email_address", nullable = false)
+	@Column(name = "email_address", nullable = true)
 	public String getEmailId() {
 		return emailId;
 	}

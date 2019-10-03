@@ -1,4 +1,4 @@
-package net.guides.springboot2.springboot2jpacrudexample.aspect;
+package net.guides.springboot2.aspect;
 
 import java.util.Arrays;
 
@@ -13,9 +13,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Aspect for logging execution of service and repository Spring components.
- * @author Ramesh Fadatare
+ * aop provides a solution to implement Cross Cutting , concern as an aspect , and Define point cuts to indicate where the aspect has to be applied.
+ * there are a few common aspects to implements transversals layers , that apply to all layers with  differents responsibilities (web , busines , data layers ..),
  *
+ * Aspect for logging execution of service and repository Spring components  , based on ( spring-aop and aspectjweaver )
+ * refer to  https://docs.spring.io/spring/docs/4.3.15.RELEASE/spring-framework-reference/html/aop.html
+ * refer to https://www.springboottutorial.com/spring-boot-and-aop-with-spring-boot-starter-aop
+ *
+ * AOP Best Practices
+ * One of the AOP Best Practices is to define a Common Aspect to store all the Pointcuts(springBeanPointcut() && applicationPackagePointcut())
+ * This helps in maintaining the pointcuts at one place.
+ * The above common definition can be used when defining point cuts in other aspects: @Around("com.xxx.pointcutNAme()")
  */
 @Aspect
 @Component
@@ -45,7 +53,6 @@ public class LoggingAspect {
 
     /**
      * Advice that logs methods throwing exceptions.
-     *
      * @param joinPoint join point for advice
      * @param e exception
      */
@@ -57,7 +64,6 @@ public class LoggingAspect {
 
     /**
      * Advice that logs when a method is entered and exited.
-     *
      * @param joinPoint join point for advice
      * @return result
      * @throws Throwable throws IllegalArgumentException

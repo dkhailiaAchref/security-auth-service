@@ -1,4 +1,4 @@
-package net.guides.springboot2.springboot2jpacrudexample;
+package net.guides.springboot2;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
+import net.guides.springboot2.model.Employee;
 
 public class SpringRestClient {
 
